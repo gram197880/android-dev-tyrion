@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/home/graham/workspace/MobworldAndroid/.metadata/.plugins/org.eclipse.jdt.core
+1410063389.index
+3444505315.index

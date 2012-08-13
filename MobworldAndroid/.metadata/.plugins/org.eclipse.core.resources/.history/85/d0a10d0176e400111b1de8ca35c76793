@@ -1,0 +1,15 @@
+package graphics;
+
+public class Background {
+	
+	public Background()
+	{
+		
+	}
+	
+	public drawBackground(Canvas c)
+	{
+		
+	}
+
+}

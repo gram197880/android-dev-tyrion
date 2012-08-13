@@ -1,0 +1,37 @@
+package gram.mobworld;
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.content.Intent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MobworldActivity extends ListActivity {
+	String tests[]  = {"GameWorld", "Settings"};
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setListAdapter(new ArrayAdapter<String>(this,
+        		android.R.layout.simple_list_item_1, tests));
+
+    }
+    
+    @Override
+    public void onListItemClick(ListView list, View view, int position, long id)
+    {
+    	super.onListItemClick(list, view, position, id);
+    	String item = tests[position];
+    	try
+    	{
+    		Class ncl = Class.forName("gram.mobworld" + item);
+    		Intent intent = new Intent(this, ncl);
+    		startActivity(intent);
+    	}
+    	catch(ClassNotFoundException ex)
+    	{
+    		ex.printStackTrace();
+    	}
+    }
+}

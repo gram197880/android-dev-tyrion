@@ -1,0 +1,73 @@
+package graphics;
+
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+
+public class ThumbStick {
+	Paint paint;
+	private float TX = 0;
+	private float TY = 0;
+	private float RX = 48;
+	private float RY = 48;
+	
+	public ThumbStick()
+	{
+		paint = new Paint();
+		TX = 64;
+	}
+	
+	public void DrawStick(Canvas canvas)
+	{
+		TY = canvas.getHeight();
+		
+		//draw the thumbstick
+		paint.setColor(Color.LTGRAY);
+		canvas.drawCircle(TX, (TY - 64), 48, paint);
+		paint.setColor(Color.GRAY);
+		canvas.drawCircle(TX, (TY - 64), 28, paint);
+		
+	}
+	
+	public boolean IsHit(double locx, double locy)
+	{
+		boolean isHit = false;
+		if(locx <= (RX) && locx >= (-RX) &&
+				locy <= ((TY - 64) + RY) && locy >= ((TY - 64)- RY))
+		{
+			isHit = true;
+		}
+		return isHit;
+	}
+	
+	public double MoveMe(double locx, double locy)
+	{
+		//get position relative to center of thumb
+		double relativePosX = locx - 64;
+		double relativePosY = locy - (TY + 64);
+		//missed it, return a negative
+		if(!IsHit(relativePosX, relativePosY))
+			return -1;
+		
+		//0 is up, 45 up-right etc..
+		double angle = 0.0;
+		angle = calculateAngle(relativePosX, relativePosY);
+		//return the angle in degrees
+		return angle;
+	}
+	
+	public double calculateAngle(double v2x, double v2y)
+	{
+		double v1x = 0;
+		double v1y = 1;
+
+		double radAngle = 0;
+		radAngle = Math.acos((v1x * v2x + v1y * v2y) / 
+				(Math.sqrt((v1x*v1x)+(v1y*v1y) * Math.sqrt((v2x*v2x)+(v2y*v2y)))));
+		double angle = radAngle * (180 / Math.PI);
+		
+		return angle;
+		
+	}
+
+}

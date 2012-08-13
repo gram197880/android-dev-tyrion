@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 1 element(s) from project &apos;Mobworld&apos;&#x0A;- Original project: &apos;Mobworld&apos;&#x0A;- Original element: &apos;gram.mobworld.androidlogic.ITouchHandler.java&apos;" description="Delete element" element1="/src&lt;gram.mobworld.androidlogic{ITouchHandler.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1334091475014" subPackages="false" version="1.0"/>
+</session>

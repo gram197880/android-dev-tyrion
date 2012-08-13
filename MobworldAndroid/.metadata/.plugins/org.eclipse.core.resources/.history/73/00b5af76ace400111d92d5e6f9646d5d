@@ -1,0 +1,49 @@
+package graphics;
+
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+
+public class ThumbButton {
+	
+	public ThumbButton()
+	{
+	}
+
+	public void DrawButtons(Canvas canvas)
+	{
+
+		float screenWidth = canvas.getWidth();
+		float screenHeight = canvas.getHeight();
+		Paint paint = new Paint();
+		paint.setTextSize(20);
+		
+		//draw the buttons
+		//a button
+		paint.setColor(Color.RED);
+		canvas.drawCircle(screenWidth - 85, screenHeight - 30, 20, paint);
+		paint.setColor(Color.BLACK);
+		canvas.drawText("A", screenWidth - 90, screenHeight - 25, paint);
+		
+		//b button
+		paint.setColor(Color.YELLOW);
+		canvas.drawCircle(screenWidth - 40, screenHeight - 30, 20, paint);
+		paint.setColor(Color.BLACK);
+		canvas.drawText("B", screenWidth - 45, screenHeight - 25, paint);
+	}
+
+
+	public boolean ButtonAHit(float locx, float locy)
+	{
+		boolean success = false;
+		
+		return success;
+	}
+	
+	public boolean ButtonBHit(float locx, float locy)
+	{
+		boolean success = false;
+		
+		return success;
+	}
+}

@@ -1,0 +1,40 @@
+package graphics;
+
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+
+public class ThumbStick {
+	Paint paint;
+	public ThumbStick()
+	{
+		paint = new Paint();
+	}
+	
+	public void drawStick(Canvas canvas)
+	{
+		float screenHeight = canvas.getHeight();
+		
+		//draw the thumbstick
+		paint.setColor(Color.LTGRAY);
+		canvas.drawCircle(48, screenHeight - 48, 48, paint);
+		paint.setColor(Color.GRAY);
+		canvas.drawCircle(28, screenHeight - 28, 28, paint);
+		
+	}
+
+	public boolean ButtonAHit(float locx, float locy)
+	{
+		boolean success = false;
+		
+		return success;
+	}
+	
+	public boolean ButtonBHit(float locx, float locy)
+	{
+		boolean success = false;
+		
+		return success;
+	}
+
+}
